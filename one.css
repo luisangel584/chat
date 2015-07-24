@@ -4,11 +4,11 @@ body{
 }
 
 .platica{
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
-    background: #ddd;
-}
+     width: 100%;
+     max-height: 200px;
+     overflow-y: auto;
+     background: #ddd;
+ }
 
 .footer{
     position: fixed;

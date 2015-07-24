@@ -2,7 +2,7 @@
 <html lang="es" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
-    <title>Angular</title>
+    <title>Chat</title>
 
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
 
@@ -20,37 +20,25 @@
 <body ng-controller="MyController">
 
 
+<div class="container">
 
+    <div class="row">
+        <div class="col-md-1 col-xs-1"></div>
+        <div class="col-md-10 col-xs-10">
 
-<!-- CHAT MARKUP -->
-<div class="example-chat l-demo-container">
-    <header>Firebase Chat Demo</header>
+            <div class="page-header">
+                <h1>Nuestro chat <small>Inges</small> </h1>
+            </div>
 
-    <div class="example-chat-toolbar">
-        <label for="nameInput">Username:</label>
-        <input ng-model="name" type="text" id="nameInput" placeholder="enter a username...">
-    </div>
+            <div class="chat">
 
-
-
-        <script>
-            $(document).ready(function(){
-
-
-                $("#todo".keyup(function(e){
-                    if(e.keyCode==13){
-                        $("#formulario".submit();
-                        $("#mensajes".animate({scrollTop: $("#mensajes"[0].scrollHeight});
-                    }
-                })
-            })
-        </script>
-
-    <div id="mensajes"></div>
-    <div id="todo">
-        <form id="formulario">
-            <textarea id="msj" style=overflow:auto;>
-            </textarea>
+                <div class="yo">
+                    <label for="nameInput">Usuario:</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input class="form-control" ng-model="name" type="text" id="nameInput" placeholder="Escribe tu nombre">
+                    </div>
+                </div>
 
                 <div class="platica">
                     <div id="example-messages" class="example-chat-messages">
@@ -61,21 +49,27 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-8 col-xs-8">
+                        <div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-console"></i></span>
+                                <input class="form-control" ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Mensaje :3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <button class="form-control btn btn-success" ng-click="addMessage()">Enviar</button>
+                    </div>
+                </div>
 
-                <footer>
-                    <input ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Mensaje :3">
-                    ENTER PARA ENVIAR
-                </footer>
+            </div>
 
-
+        </div>
+        <div class="col-md-1 col-xs-1"></div>
     </div>
-    </form>
-
 
 </div>
-
-
-
 
 </body>
 </html>

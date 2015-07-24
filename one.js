@@ -2,29 +2,43 @@ angular.module("myApp", ["firebase"])
 
 .controller("MyController", ["$scope", "$firebaseArray",
     function($scope, $firebaseArray) {
-        //CREATE A FIREBASE REFERENCE
+        //Arreglo BD
         var ref = new Firebase("https://listatareas-lcouoh.firebaseio.com/demo");
 
-        // GET MESSAGES AS AN ARRAY
+        // Arreglo de mensajes
         $scope.messages = $firebaseArray(ref);
 
-        //ADD MESSAGE METHOD
+        //Agregar
         $scope.addMessage = function(e) {
 
-            //LISTEN FOR RETURN KEY
+            //Esperar Enter
             if (e.keyCode === 13 && $scope.msg) {
                 //ALLOW CUSTOM OR ANONYMOUS USER NAMES
-                var name = $scope.name || "anonymous";
+                var name = $scope.name || "Nene no identificado";
 
-                //ADD TO FIREBASE
+                //Agregar
                 $scope.messages.$add({
                     from: name,
-                    body: $scope.msg
+                    body: $scope.msg,
+                    date: new Date()
                 });
 
-                //RESET MESSAGE
+                //Limpiar
                 $scope.msg = "";
             }
+        }
+
+        $scope.enviar = function(){
+            var name = $scope.name || "Nene no identificado";
+
+            //Agregar
+            $scope.messages.$add({
+                from: name,
+                body: $scope.msg
+            });
+
+            //Limpiar
+            $scope.msg = "";
         }
     }
 ]);
